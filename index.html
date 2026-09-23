@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f7f5">
+<meta name="description" content="IN NEWS — India Specific">
+<title>IN NEWS — India Specific</title>
+<style>
+:root{
+  --bg:#f7f7f5;--surface:#fff;--surface2:#f1f1ef;--ink:#111;
+  --muted:#737373;--line:#e5e5e2;--red:#c71920;--red2:#a90f15;
+  --shadow:0 12px 40px rgba(0,0,0,.07);--radius:24px;
+  --max:1440px;--gutter:clamp(16px,3vw,48px);
+  --display:clamp(38px,5vw,76px);--h2:clamp(28px,3vw,46px);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Inter,Segoe UI,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+.container{width:min(var(--max),calc(100% - var(--gutter)*2));margin:auto}
+
+/* Apple-like glass navigation */
+.nav-shell{position:sticky;top:0;z-index:50;padding:10px var(--gutter);background:rgba(247,247,245,.78);backdrop-filter:saturate(180%) blur(22px);-webkit-backdrop-filter:saturate(180%) blur(22px);border-bottom:1px solid rgba(0,0,0,.06)}
+.nav{height:54px;width:min(var(--max),100%);margin:auto;display:flex;align-items:center;gap:28px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.04em;min-width:max-content}
+.logo-badge{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--red);color:#fff;font-family:Georgia,serif;font-size:25px}
+.logo-text{font-size:19px}
+.logo-sub{display:block;font-size:7px;letter-spacing:.18em;color:var(--muted);margin-top:2px}
+.navlinks{display:flex;align-items:center;justify-content:center;gap:24px;flex:1;font-size:13px;font-weight:650;color:#444}
+.navlinks a:hover{color:var(--red)}
+.nav-actions{display:flex;align-items:center;gap:8px}
+.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 14px;cursor:pointer}
+.subscribe{background:var(--red);border-color:var(--red);color:#fff;font-weight:750}
+.menu{display:none;border:0;background:transparent;font-size:25px;cursor:pointer}
+
+/* Breaking strip */
+.breaking{background:#111;color:#fff}
+.breaking .container{min-height:36px;display:flex;align-items:center;gap:12px;font-size:12px}
+.live{background:var(--red);padding:5px 9px;border-radius:999px;font-weight:800;font-size:9px;letter-spacing:.1em}
+
+/* Hero */
+.hero{padding:clamp(28px,5vw,72px) 0 34px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(300px,.7fr);gap:24px}
+.hero-card{position:relative;overflow:hidden;border-radius:32px;min-height:clamp(460px,62vh,720px);background:#151515;color:#fff;box-shadow:var(--shadow)}
+.hero-bg{position:absolute;inset:0;background:
+linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.82)),
+url("assets/innews-logo.png") center/cover no-repeat;
+filter:saturate(.9)}
+.hero-content{position:absolute;inset:auto 0 0;padding:clamp(24px,4vw,54px);max-width:900px}
+.eyebrow{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#ffb5b8}
+.hero h1{font-size:var(--display);line-height:.94;letter-spacing:-.055em;margin:10px 0 18px}
+.hero p{font-size:clamp(15px,1.5vw,19px);line-height:1.5;color:#eee;max-width:680px;margin:0 0 24px}
+.cta{display:inline-flex;align-items:center;gap:9px;background:#fff;color:#111;border:0;border-radius:999px;padding:13px 18px;font-size:13px;font-weight:750}
+.hero-side{display:grid;gap:14px}
+.news-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;gap:16px;min-height:145px;transition:.2s ease}
+.news-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.thumb{width:120px;min-width:120px;border-radius:17px;background:linear-gradient(135deg,#c71920,#111)}
+.news-card h3{font-family:Georgia,serif;font-size:20px;line-height:1.12;margin:7px 0}
+.meta{font-size:11px;color:var(--muted)}
+
+/* Section */
+.section{padding:42px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:20px}
+.section-head h2{font-size:var(--h2);letter-spacing:-.045em;margin:0}
+.section-head a{font-size:12px;font-weight:750;color:var(--red)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.story-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.story-img{height:clamp(170px,18vw,260px);background:linear-gradient(135deg,#dededb,#6b6b6b)}
+.story-card:nth-child(2) .story-img{background:linear-gradient(135deg,#111,#777)}
+.story-card:nth-child(3) .story-img{background:linear-gradient(135deg,#a78c72,#252525)}
+.story-body{padding:20px}
+.story-body h3{font-family:Georgia,serif;font-size:clamp(20px,2vw,27px);line-height:1.08;margin:7px 0 9px}
+.story-body p{color:#666;font-size:14px;line-height:1.5;margin:0}
+
+/* Latest feed */
+.feed{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:30px}
+.feed-item{display:grid;grid-template-columns:minmax(160px,260px) 1fr;gap:20px;padding:20px 0;border-top:1px solid var(--line)}
+.feed-img{height:155px;border-radius:20px;background:linear-gradient(135deg,#bbb,#333)}
+.feed-item h3{font-family:Georgia,serif;font-size:clamp(21px,2vw,30px);line-height:1.08;margin:7px 0}
+.feed-item p{font-size:14px;color:#666;line-height:1.5;margin:0 0 10px}
+.aside{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;height:max-content}
+.aside h3{font-size:22px;letter-spacing:-.03em;margin:0 0 5px}
+.rank{display:grid;grid-template-columns:38px 1fr;gap:10px;padding:17px 0;border-top:1px solid var(--line)}
+.rank b{color:var(--red);font-size:19px}
+.rank h4{font-family:Georgia,serif;font-size:17px;line-height:1.15;margin:0}
+
+/* Video */
+.video{margin-top:22px;border-radius:32px;background:#101010;color:#fff;padding:clamp(20px,4vw,50px);overflow:hidden}
+.video-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:34px;align-items:center}
+.video-box{aspect-ratio:16/9;border-radius:24px;background:
+linear-gradient(135deg,#19080a,#b3151d 52%,#090909);display:grid;place-items:center;position:relative;overflow:hidden}
+.play{width:74px;height:74px;border-radius:50%;background:#fff;color:#111;display:grid;place-items:center;font-size:24px;padding-left:4px;box-shadow:0 10px 35px #0007}
+.video h2{font-size:clamp(30px,4vw,52px);letter-spacing:-.05em;line-height:.98;margin:9px 0 14px}
+.video p{color:#bbb;line-height:1.55;max-width:500px}
+
+/* Newsletter */
+.newsletter{margin:44px 0;padding:30px;border-radius:var(--radius);background:var(--red);color:#fff;display:flex;justify-content:space-between;align-items:center;gap:25px}
+.newsletter h2{margin:0 0 5px;font-size:28px;letter-spacing:-.04em}
+.newsletter p{margin:0;color:#ffd9da;font-size:14px}
+.form{display:flex;gap:8px;min-width:min(430px,100%)}
+.form input{min-width:0;flex:1;border:0;border-radius:999px;padding:13px 16px;outline:0}
+.form button{border:0;border-radius:999px;padding:13px 18px;background:#111;color:#fff;font-weight:750;cursor:pointer}
+
+/* Footer */
+footer{background:#111;color:#fff;padding:44px 0 24px}
+.footer-grid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:30px}
+.footer-logo{font-size:22px;font-weight:800}
+footer p,footer a{color:#999;font-size:13px;line-height:1.55}
+footer h4{font-size:11px;letter-spacing:.13em;text-transform:uppercase;margin:0 0 12px}
+footer a{display:block;margin:8px 0}
+.copy{border-top:1px solid #333;margin-top:28px;padding-top:18px;color:#666;font-size:11px;display:flex;justify-content:space-between}
+
+/* Search overlay */
+.search-panel{position:fixed;inset:0;background:rgba(247,247,245,.96);backdrop-filter:blur(20px);z-index:100;display:none;padding:12vh var(--gutter)}
+.search-panel.open{display:block}
+.search-panel input{width:min(800px,100%);font-size:clamp(30px,6vw,72px);letter-spacing:-.05em;border:0;border-bottom:2px solid #111;background:transparent;outline:0}
+.close{position:absolute;right:var(--gutter);top:30px;border:0;background:#111;color:#fff;border-radius:50%;width:44px;height:44px;cursor:pointer}
+
+/* Tablet / landscape */
+@media(max-width:1100px){
+ .navlinks{gap:15px}.nav{gap:16px}
+ .hero-grid{grid-template-columns:1fr}.hero-card{min-height:580px}.hero-side{grid-template-columns:repeat(2,1fr)}
+ .feed{grid-template-columns:1fr}.aside{display:grid;grid-template-columns:repeat(2,1fr);gap:0 22px}.aside h3{grid-column:1/-1}
+ .video-grid{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+ :root{--gutter:18px}
+ .navlinks,.nav-actions .subscribe{display:none}.menu{display:block;margin-left:auto}
+ .nav.mobile .navlinks{display:flex;position:absolute;left:0;right:0;top:74px;background:rgba(247,247,245,.98);padding:20px 18px;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--line);box-shadow:0 15px 30px #0001}
+ .hero-card{min-height:500px;border-radius:25px}.hero-side{grid-template-columns:1fr}
+ .grid3{grid-template-columns:1fr}.story-img{height:210px}
+ .feed-item{grid-template-columns:120px 1fr;gap:14px}.feed-img{height:100px;border-radius:15px}.feed-item p{display:none}
+ .aside{grid-template-columns:1fr}
+ .newsletter{display:block;padding:24px}.form{margin-top:18px}
+ .footer-grid{grid-template-columns:1fr 1fr}.copy{display:block}.copy span{display:block;margin-top:8px}
+}
+/* Narrow phones */
+@media(max-width:430px){
+ .top-hide{display:none}.breaking .container{font-size:10px}
+ .hero{padding-top:18px}.hero-card{min-height:470px}.hero-content{padding:22px}
+ .news-card{padding:14px;min-height:120px}.thumb{width:88px;min-width:88px;height:88px}
+ .news-card h3{font-size:17px}.section{padding:30px 0}
+ .feed-item{grid-template-columns:96px 1fr}.feed-img{height:82px}
+ .feed-item h3{font-size:18px}.footer-grid{grid-template-columns:1fr}
+}
+/* Wide TV / 4K landscape: larger breathing room and readable controls */
+@media(min-width:1800px){
+ :root{--max:1720px;--gutter:64px}
+ .nav{height:66px}.logo-badge{width:44px;height:44px}.logo-text{font-size:22px}
+ body{font-size:17px}.news-card{min-height:180px}.hero-card{min-height:720px}
+}
+/* Rotated phone/tablet: use the available landscape width */
+@media (orientation:landscape) and (max-height:700px){
+ .nav-shell{padding-top:6px;padding-bottom:6px}.nav{height:46px}
+ .hero{padding-top:20px}.hero-grid{grid-template-columns:1.35fr .65fr}.hero-card{min-height:390px}
+ .hero-side{grid-template-columns:1fr}.news-card{min-height:108px}
+ .hero h1{font-size:clamp(34px,5vw,56px)}
+}
+/* Accessibility */
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.news-card{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="nav-shell">
+  <nav class="nav" id="nav">
+    <a class="logo" href="#" aria-label="IN NEWS home">
+      <span class="logo-badge">N</span>
+      <span><span class="logo-text">IN NEWS</span><span class="logo-sub">INDIA SPECIFIC</span></span>
+    </a>
+    <div class="navlinks">
+      <a href="#latest">Latest</a><a href="#india">India</a><a href="#business">Business</a>
+      <a href="#technology">Technology</a><a href="#world">World</a><a href="#videos">Videos</a>
+    </div>
+    <div class="nav-actions">
+      <button class="pill" id="searchBtn" aria-label="Search">⌕</button>
+      <a class="pill subscribe" href="#brief">Subscribe</a>
+      <button class="menu" id="menuBtn" aria-label="Menu">☰</button>
+    </div>
+  </nav>
+</div>
+
+<div class="breaking"><div class="container"><span class="live">LIVE</span><span>India Specific • News, explainers and video in one place</span></div></div>
+
+<main>
+<section class="hero" id="latest">
+  <div class="container hero-grid">
+    <article class="hero-card">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <div class="eyebrow">IN NEWS • Featured</div>
+        <h1>India, clearly.</h1>
+        <p>A premium India-first news experience built for fast reading, deep context and video.</p>
+        <a class="cta" href="#india">Explore India <span>→</span></a>
+      </div>
+    </article>
+    <div class="hero-side">
+      <article class="news-card"><div class="thumb"></div><div><div class="eyebrow" style="color:#c71920">India</div><h3>What matters across India today</h3><div class="meta">5 min read</div></div></article>
+      <article class="news-card"><div class="thumb"></div><div><div class="eyebrow" style="color:#c71920">Business</div><h3>Markets, companies and the economy</h3><div class="meta">4 min read</div></div></article>
+      <article class="news-card"><div class="thumb"></div><div><div class="eyebrow" style="color:#c71920">Technology</div><h3>AI and India's technology story</h3><div class="meta">6 min read</div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="india">
+<div class="container">
+  <div class="section-head"><h2>India</h2><a href="#">View all →</a></div>
+  <div class="grid3">
+    <article class="story-card"><div class="story-img"></div><div class="story-body"><div class="eyebrow" style="color:#c71920">National</div><h3>Stories from cities, states and communities</h3><p>Reporting and context from across the country.</p></div></article>
+    <article class="story-card" id="business"><div class="story-img"></div><div class="story-body"><div class="eyebrow" style="color:#c71920">Explainer</div><h3>Understand the issue before the noise</h3><p>Key facts, background and what to watch.</p></div></article>
+    <article class="story-card"><div class="story-img"></div><div class="story-body"><div class="eyebrow" style="color:#c71920">Ground Report</div><h3>Beyond the headline</h3><p>People and developments shaping everyday India.</p></div></article>
+  </div>
+</div>
+</section>
+
+<section class="section" id="technology">
+<div class="container feed">
+  <div>
+    <div class="section-head"><h2>Latest</h2><a href="#">All news →</a></div>
+    <article class="feed-item"><div class="feed-img"></div><div><div class="eyebrow" style="color:#c71920">Business</div><h3>Inside India's changing business landscape</h3><p>Companies, startups, markets and policy — presented with context.</p><div class="meta">Updated today • 5 min read</div></div></article>
+    <article class="feed-item" id="world"><div class="feed-img"></div><div><div class="eyebrow" style="color:#c71920">World</div><h3>India and the world: stories to watch</h3><p>International developments through an India-focused lens.</p><div class="meta">8 min read</div></div></article>
+    <article class="feed-item"><div class="feed-img"></div><div><div class="eyebrow" style="color:#c71920">Technology</div><h3>AI, digital infrastructure and India's next chapter</h3><p>Technology reporting without the hype.</p><div class="meta">6 min read</div></div></article>
+  </div>
+  <aside class="aside"><h3>Most Read</h3>
+    <div class="rank"><b>01</b><h4>India stories readers are following</h4></div>
+    <div class="rank"><b>02</b><h4>Five things to know this morning</h4></div>
+    <div class="rank"><b>03</b><h4>The week in business and technology</h4></div>
+    <div class="rank"><b>04</b><h4>Explainer: making sense of the big story</h4></div>
+  </aside>
+</div>
+</section>
+
+<section class="section" id="videos">
+<div class="container">
+  <div class="video">
+    <div class="video-grid">
+      <div class="video-box"><div class="play">▶</div></div>
+      <div><div class="eyebrow">IN News Video</div><h2>News made for watching.</h2><p>Add YouTube videos, Shorts, interviews and explainers here. The layout automatically adapts from phone portrait to TV landscape.</p><a class="cta" href="#">Watch latest →</a></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="container" id="brief">
+<div class="newsletter">
+  <div><h2>The IN Brief</h2><p>A concise India-focused briefing for your inbox.</p></div>
+  <form class="form" onsubmit="event.preventDefault();alert('Connect this form to your email provider.');"><input type="email" placeholder="Your email" required><button>Subscribe</button></form>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container footer-grid">
+  <div><div class="footer-logo">IN NEWS</div><p>India Specific. A clean digital home for reporting, context and video.</p></div>
+  <div><h4>Sections</h4><a href="#india">India</a><a href="#business">Business</a><a href="#technology">Technology</a><a href="#world">World</a></div>
+  <div><h4>Company</h4><a href="#">About</a><a href="#">Editorial</a><a href="#">Careers</a><a href="#">Contact</a></div>
+  <div><h4>Follow</h4><a href="#">YouTube</a><a href="#">Instagram</a><a href="#">X</a><a href="#">Facebook</a></div>
+</div>
+<div class="container copy"><span>© 2026 IN NEWS</span><span>INDIA SPECIFIC</span></div>
+</footer>
+
+<div class="search-panel" id="searchPanel">
+  <button class="close" id="closeSearch">×</button>
+  <div class="container"><div class="eyebrow" style="color:#c71920">Search IN NEWS</div><input id="searchInput" type="search" placeholder="What are you looking for?"></div>
+</div>
+
+<script>
+const nav=document.getElementById('nav'), menu=document.getElementById('menuBtn');
+menu.addEventListener('click',()=>nav.classList.toggle('mobile'));
+document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('mobile')));
+
+const panel=document.getElementById('searchPanel'), input=document.getElementById('searchInput');
+document.getElementById('searchBtn').addEventListener('click',()=>{panel.classList.add('open');setTimeout(()=>input.focus(),80)});
+document.getElementById('closeSearch').addEventListener('click',()=>panel.classList.remove('open'));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')panel.classList.remove('open')});
+</script>
+</body>
+</html>
